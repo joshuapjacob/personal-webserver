@@ -7,8 +7,7 @@ services:
   # The Website
   joshuapjacob.com:
     container_name: joshuapjacob.com
-    #image: index.docker.io/joshuapjacob/joshuapjacob.com:latest
-    image: test
+    image: index.docker.io/joshuapjacob/joshuapjacob.com:latest
     restart: unless-stopped
     ports:
       - "80:80"

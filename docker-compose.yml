@@ -1,0 +1,44 @@
+# This file has to be manually loaded on my cloud server if modified.
+
+version: "3"
+
+services:
+
+  # The Website
+  joshuapjacob.com:
+    container_name: joshuapjacob.com
+    #image: index.docker.io/joshuapjacob/joshuapjacob.com:latest
+    image: test
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - letsencrypt_certs:/etc/nginx/certs
+      - letsencrypt_www:/var/www/letsencrypt
+
+  # Let's Encrypt SSL Certificates
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - letsencrypt_certs:/etc/letsencrypt
+      - letsencrypt_www:/var/www/letsencrypt
+    depends_on:
+      - joshuapjacob.com
+    command: certonly --webroot --webroot-path=/var/www/letsencrypt --email xozhioc@gmail.com --agree-tos --no-eff-email -d joshuapjacob.com  -d www.joshuapjacob.com
+
+  # Automatically reloads the website container with newer image if available.
+  # Checks for updates on the DockerHub repo the every 5 minutes.
+  watchtower:
+    container_name: watchtower
+    image: containrrr/watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/joshuapjacob/.docker/config.json:/config.json
+    command: --debug --interval 300
+
+volumes:
+  letsencrypt_certs:
+  letsencrypt_www:

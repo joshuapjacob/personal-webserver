@@ -6,7 +6,7 @@ Docker configuration for my webserver droplet on DigitalOcean
 ## Containers
 
 **My Website**
-: [joshuapjacob.com](https://github.com/joshuapjacob/joshuapjacob.com)
+: [joshuapjacob.com (repo link)](https://github.com/joshuapjacob/joshuapjacob.com)
 
 **Certbot**
 : Obtain TLS/SSL certificates from Let's Encrypt 

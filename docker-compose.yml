@@ -1,5 +1,3 @@
-# This file has to be manually loaded on my cloud server if modified.
-
 version: "3"
 
 services:
@@ -15,6 +13,8 @@ services:
     volumes:
       - letsencrypt_certs:/etc/nginx/certs
       - letsencrypt_www:/var/www/letsencrypt
+    # Reload nginx every 6 hours cause maybe new certs 
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
 
   # Let's Encrypt SSL Certificates
   certbot:
@@ -26,6 +26,8 @@ services:
     depends_on:
       - joshuapjacob.com
     command: certonly --webroot --webroot-path=/var/www/letsencrypt --email xozhioc@gmail.com --agree-tos --no-eff-email -d joshuapjacob.com  -d www.joshuapjacob.com
+    # Check if certs are up for renewal every 12 hours as recommended by Let’s Encrypt
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
   # Automatically reloads the website container with newer image if available.
   # Checks for updates on the DockerHub repo the every 5 minutes.

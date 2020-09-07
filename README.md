@@ -1,6 +1,15 @@
 # joshuapjacob.com-webserver
-My webserver
+Docker Compose configuration for my webserver droplet on DigitalOcean
 
-## Acknowledgements
-- https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
-- https://www.humankode.com/ssl/how-to-set-up-free-ssl-certificates-from-lets-encrypt-using-docker-and-nginx
+[(Sign up with this link for free credit worth $100 on DigitalOcean)](https://m.do.co/c/d1712c8dc6f3)
+
+## Containers
+
+**My Website**
+: Image built from [my website's repository](https://github.com/joshuapjacob/joshuapjacob.com).
+
+**Certbot**
+: Obtain TLS/SSL certificates from Let's Encrypt.
+
+**Watchtower**
+: Periodically check for and automatically perform updates of my website's container if a new image is available.

@@ -2,7 +2,7 @@
 Docker Compose configuration for my webserver droplet on DigitalOcean
 
 ```console
-docker-compose up
+sudo docker-compose up
 ```
 
 ## Containers

@@ -5,8 +5,6 @@ Docker Compose configuration for my webserver droplet on DigitalOcean
 docker-compose up
 ```
 
-[(Sign up with this link for free credit worth $100 on DigitalOcean)](https://m.do.co/c/d1712c8dc6f3)
-
 ## Containers
 
 **My Website**

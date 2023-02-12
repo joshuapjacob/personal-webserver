@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 cd ~/personal-website
 echo "Updating personal-website repository..."

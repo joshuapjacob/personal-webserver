@@ -1,8 +1,9 @@
-# joshuapjacob.com-webserver
-Docker Compose configuration for my webserver droplet on DigitalOcean
+# webserver
+Configuration for my webserver droplet on DigitalOcean.
 
 ```console
-sudo docker-compose up
+./update.sh
+sudo docker compose up
 ```
 
 ## Containers

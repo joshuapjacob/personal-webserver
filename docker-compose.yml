@@ -48,10 +48,10 @@ services:
   trading-dashboard:
     image: trading-dashboard
     container_name: trading-dashboard
-    expose:
-      - "8051"
+    restart: always
     environment:
       - VIRTUAL_HOST=trading.joshuapjacob.com
+      - VIRTUAL_PORT=8501
       - LETSENCRYPT_HOST=trading.joshuapjacob.com
 
 volumes:

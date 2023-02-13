@@ -54,11 +54,13 @@ services:
     container_name: trading-dashboard
     restart: always
     expose:
-      - 8501
+      - "8501"
     environment:
       - VIRTUAL_HOST=trading.joshuapjacob.com
       - VIRTUAL_PORT=8501
       - LETSENCRYPT_HOST=trading.joshuapjacob.com
+    volumes:
+      - ~/trading-data:/root/trading-data
 
   # TRADING ENGINE -------------------------------------------------------------
   trading-engine:
@@ -67,11 +69,14 @@ services:
     container_name: trading-engine
     restart: unless-stopped
     expose:
-      - 8000
+      - "8000"
+    env_file: ~/secrets.env
     environment:
       - VIRTUAL_HOST=trader.joshuapjacob.com
-      - VIRTUAL_PORT=8501
+      - VIRTUAL_PORT=8000
       - LETSENCRYPT_HOST=trader.joshuapjacob.com
+    volumes:
+      - ~/trading-data:/root/trading-data
 
 volumes:
   conf:
@@ -80,3 +85,4 @@ volumes:
   dhparam:
   certs:
   acme:
+  ~/trading-data:

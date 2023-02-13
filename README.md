@@ -1,6 +1,10 @@
 # webserver
 Configuration for my webserver droplet on DigitalOcean.
 
+```
+scp -r ~/trading-data/ joshuapjacob@joshuapjacob.com:~/trading-data
+```
+
 ```console
 ./update.sh
 sudo docker compose up

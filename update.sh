@@ -12,3 +12,9 @@ echo "Updating trading-dashboard repository..."
 git pull
 echo "Building trading-dashboard image..."
 docker build . -t trading-dashboard
+
+cd ~/trading-engine
+echo "Updating trading-engine repository..."
+git pull
+echo "Building trading-engine image..."
+docker build . -t trading-engine

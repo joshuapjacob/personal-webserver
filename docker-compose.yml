@@ -4,8 +4,9 @@ services:
 
   # REVERSE PROXY --------------------------------------------------------------
   nginx-proxy:
-    container_name: nginx-proxy
     image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    restart: always
     ports:
       - "80:80"
       - "443:443"
@@ -16,14 +17,14 @@ services:
       - certs:/etc/nginx/certs:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
     environment:
-      - DEFAULT_HOST=joshuapjacob.com
-      - DEFAULT_ROOT='301 $$scheme://joshuapjacob.com'
+      - DEFAULT_ROOT: 301 $$scheme://joshuapjacob.com
       - ENABLE_IPV6=true
 
   # SSL CERTIFICATION ----------------------------------------------------------
   acme-companion:
     image: nginxproxy/acme-companion
     container_name: nginx-proxy-acme
+    restart: always
     environment:
       - DEFAULT_EMAIL=xozhioc@gmail.com
     volumes_from:
@@ -36,7 +37,9 @@ services:
   # PERSONAL WEBSITE -----------------------------------------------------------
   personal-website:
     image: personal-website
+    build: ~/personal-website/
     container_name: personal-website
+    restart: always
     expose:
       - "80"
       - "443"
@@ -47,12 +50,28 @@ services:
   # TRADING DASHBOARD ----------------------------------------------------------
   trading-dashboard:
     image: trading-dashboard
+    build: ~/trading-dashboard/
     container_name: trading-dashboard
     restart: always
+    expose:
+      - 8501
     environment:
       - VIRTUAL_HOST=trading.joshuapjacob.com
       - VIRTUAL_PORT=8501
       - LETSENCRYPT_HOST=trading.joshuapjacob.com
+
+  # TRADING ENGINE -------------------------------------------------------------
+  trading-engine:
+    image: trading-engine
+    build: ~/trading-engine/
+    container_name: trading-engine
+    restart: unless-stopped
+    expose:
+      - 8000
+    environment:
+      - VIRTUAL_HOST=trader.joshuapjacob.com
+      - VIRTUAL_PORT=8501
+      - LETSENCRYPT_HOST=trader.joshuapjacob.com
 
 volumes:
   conf:

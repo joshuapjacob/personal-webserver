@@ -17,7 +17,7 @@ services:
       - certs:/etc/nginx/certs:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
     environment:
-      - DEFAULT_ROOT=301 $$scheme://joshuapjacob.com
+      - DEFAULT_HOST=$$scheme://joshuapjacob.com
       - ENABLE_IPV6=true
 
   # SSL CERTIFICATION ----------------------------------------------------------

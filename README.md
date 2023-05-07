@@ -21,5 +21,5 @@ sudo docker compose up
 **[Trading Dashboard](https://github.com/joshuapjacob/trading-dashboard)**
 : Dashboard for my trading bot.
 
-**[Trading Engine](https://github.com/joshuapjacob/trading-engine)
-: The actual trading bot.
+**[Trading Engine](https://github.com/joshuapjacob/trading-engine)**
+: My trading bot.

@@ -1,5 +1,7 @@
 # webserver
-My personal webserver docker-compose configuration.
+My personal webserver's docker-compose configuration.
+
+## Usage
 
 ```console
 sudo docker compose up
@@ -7,11 +9,17 @@ sudo docker compose up
 
 ## Containers
 
-**My Website**
-: Image built from [my website's repository](https://github.com/joshuapjacob/joshuapjacob.com).
+**[Nginx Proxy](https://github.com/nginx-proxy/nginx-proxy)**
+: Reverse-proxy manager (redirects you to the container you're looking for).
 
-**Certbot**
-: Obtain TLS/SSL certificates from Let's Encrypt.
+**[ACME Companion](https://github.com/nginx-proxy/acme-companion)**
+: Automatically create and renew TLS/SSL certificates from Let's Encrypt.
 
-**Watchtower**
-: Periodically check for and automatically perform updates of my website's container if a new image is available.
+**[Website](https://github.com/joshuapjacob/joshuapjacob.com)**
+: Image built from the repository of my personal website.
+
+**[Trading Dashboard](https://github.com/joshuapjacob/trading-dashboard)**
+: Dashboard for my trading bot.
+
+**[Trading Engine](https://github.com/joshuapjacob/trading-engine)
+: The actual trading bot.

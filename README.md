@@ -1,4 +1,4 @@
-# webserver
+# Personal Webserver
 My personal webserver's docker-compose configuration.
 
 ## Usage

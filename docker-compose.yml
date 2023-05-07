@@ -25,7 +25,7 @@ services:
     container_name: nginx-proxy-acme
     restart: always
     environment:
-      - DEFAULT_EMAIL=xozhioc@gmail.com
+      - DEFAULT_EMAIL=me@joshuapjacob.com
     volumes_from:
       - nginx-proxy
     volumes:

@@ -18,7 +18,6 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     environment:
       - DEFAULT_HOST=$$scheme://joshuapjacob.com
-      - ENABLE_IPV6=true
 
   # SSL CERTIFICATION ----------------------------------------------------------
   acme-companion:

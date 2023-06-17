@@ -10,6 +10,7 @@ services:
     ports:
       - "3128:3128"
     volumes:
+      - ./squid.conf:/etc/squid/squid.conf
       - /srv/docker/squid/cache:/var/spool/squid
 
   # REVERSE PROXY --------------------------------------------------------------

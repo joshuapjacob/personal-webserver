@@ -60,7 +60,10 @@ services:
   # TRADING DASHBOARD ----------------------------------------------------------
   trading-dashboard:
     image: trading-dashboard
-    build: git@github.com:joshuapjacob/trading-dashboard.git#main
+    build: 
+      context: git@github.com:joshuapjacob/trading-dashboard.git#main
+    additional_contexts:
+      - ~
     container_name: trading-dashboard
     restart: always
     expose:

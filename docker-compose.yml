@@ -46,7 +46,7 @@ services:
   # PERSONAL WEBSITE -----------------------------------------------------------
   personal-website:
     image: personal-website
-    build: git@github.com:joshuapjacob/personal-website.git
+    build: git@github.com:joshuapjacob/personal-website.git#main
     container_name: personal-website
     restart: always
     expose:
@@ -59,7 +59,7 @@ services:
   # TRADING DASHBOARD ----------------------------------------------------------
   trading-dashboard:
     image: trading-dashboard
-    build: git@github.com:joshuapjacob/trading-dashboard.git
+    build: git@github.com:joshuapjacob/trading-dashboard.git#main
     container_name: trading-dashboard
     restart: always
     expose:
@@ -74,7 +74,7 @@ services:
   # TRADING ENGINE -------------------------------------------------------------
   trading-engine:
     image: trading-engine
-    build: git@github.com:joshuapjacob/trading-engine.git
+    build: git@github.com:joshuapjacob/trading-engine.git#prod
     container_name: trading-engine
     restart: unless-stopped
     expose:

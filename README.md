@@ -4,12 +4,14 @@ My personal webserver's docker-compose configuration.
 ## Usage
 
 ```console
-sudo docker compose up
+sudo docker compose up --build
 ```
 
 ## Containers
 
 **[Nginx Proxy](https://github.com/nginx-proxy/nginx-proxy)**: reverse-proxy manager (redirects you to the container you're looking for).
+
+**[Squid Proxy](https://github.com/squid-cache/squid)**: personal proxy to access websites that I cannot otherwise access.
 
 **[ACME Companion](https://github.com/nginx-proxy/acme-companion)**: automatically create and renew TLS/SSL certificates from Let's Encrypt.
 

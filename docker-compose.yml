@@ -1,4 +1,4 @@
-version: "3"
+version: "2"
 
 services:
 
@@ -61,7 +61,7 @@ services:
   trading-dashboard:
     image: trading-dashboard
     build: 
-      context: git@github.com:joshuapjacob/trading-dashboard.git#main
+      # context: git@github.com:joshuapjacob/trading-dashboard.git#main
       additional_contexts:
         secrets: ~/secrets
     container_name: trading-dashboard

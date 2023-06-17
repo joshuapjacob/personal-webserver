@@ -2,6 +2,16 @@ version: "2"
 
 services:
 
+  # PERSONAL PROXY -------------------------------------------------------------
+  squid-proxy:
+    image: sameersbn/squid
+    container_name: squid-proxy
+    restart: always
+    ports:
+      - "3128:3128"
+    volumes:
+      - /srv/docker/squid/cache:/var/spool/squid
+
   # REVERSE PROXY --------------------------------------------------------------
   nginx-proxy:
     image: jwilder/nginx-proxy
@@ -36,7 +46,7 @@ services:
   # PERSONAL WEBSITE -----------------------------------------------------------
   personal-website:
     image: personal-website
-    build: ~/personal-website/
+    build: git@github.com:joshuapjacob/personal-website.git
     container_name: personal-website
     restart: always
     expose:
@@ -49,7 +59,7 @@ services:
   # TRADING DASHBOARD ----------------------------------------------------------
   trading-dashboard:
     image: trading-dashboard
-    build: ~/trading-dashboard/
+    build: git@github.com:joshuapjacob/trading-dashboard.git
     container_name: trading-dashboard
     restart: always
     expose:
@@ -64,7 +74,7 @@ services:
   # TRADING ENGINE -------------------------------------------------------------
   trading-engine:
     image: trading-engine
-    build: ~/trading-engine/
+    build: git@github.com:joshuapjacob/trading-engine.git
     container_name: trading-engine
     restart: unless-stopped
     expose:

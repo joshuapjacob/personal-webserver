@@ -63,7 +63,7 @@ services:
     build: 
       context: git@github.com:joshuapjacob/trading-dashboard.git#main
       additional_contexts:
-        - secrets=~/secrets
+        secrets: ~/secrets
     container_name: trading-dashboard
     restart: always
     expose:

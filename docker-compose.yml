@@ -60,10 +60,7 @@ services:
   # TRADING DASHBOARD ----------------------------------------------------------
   trading-dashboard:
     image: trading-dashboard
-    build: 
-      context: git@github.com:joshuapjacob/trading-dashboard.git#main
-      # additional_context:
-      #   secrets: ~/secrets
+    build: git@github.com:joshuapjacob/trading-dashboard.git#main
     container_name: trading-dashboard
     restart: always
     expose:
@@ -74,6 +71,7 @@ services:
       - LETSENCRYPT_HOST=trading.joshuapjacob.com
     volumes:
       - ~/trading-data:/root/trading-data
+      - ~/.streamlit:/app/.streamlit
 
   # TRADING ENGINE -------------------------------------------------------------
   trading-engine:

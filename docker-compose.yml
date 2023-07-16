@@ -74,16 +74,16 @@ services:
       - ~/.streamlit:/app/.streamlit
 
   # TRADING ENGINE -------------------------------------------------------------
-  trading-engine:
-    image: trading-engine
-    build: git@github.com:joshuapjacob/trading-engine.git#prod
-    container_name: trading-engine
-    restart: unless-stopped
-    expose:
-      - "8000"
-    env_file: ~/secrets.env
-    volumes:
-      - ~/trading-data:/root/trading-data
+  # trading-engine:
+  #   image: trading-engine
+  #   build: git@github.com:joshuapjacob/trading-engine.git#prod
+  #   container_name: trading-engine
+  #   restart: unless-stopped
+  #   expose:
+  #     - "8000"
+  #   env_file: ~/secrets.env
+  #   volumes:
+  #     - ~/trading-data:/root/trading-data
 
 volumes:
   conf:

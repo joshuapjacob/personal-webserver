@@ -60,7 +60,7 @@ services:
   # TRADING DASHBOARD ----------------------------------------------------------
   trading-dashboard:
     image: trading-dashboard
-    build: git@github.com:joshuapjacob/trading-dashboard.git#main
+    build: git@github.com:joshuapjacob/trading.git#prod:dashboard
     container_name: trading-dashboard
     restart: always
     expose:
@@ -76,7 +76,7 @@ services:
   # TRADING ENGINE -------------------------------------------------------------
   # trading-engine:
   #   image: trading-engine
-  #   build: git@github.com:joshuapjacob/trading-engine.git#prod
+  #   build: git@github.com:joshuapjacob/trading.git#prod:engine
   #   container_name: trading-engine
   #   restart: unless-stopped
   #   expose:
@@ -84,6 +84,15 @@ services:
   #   env_file: ~/secrets.env
   #   volumes:
   #     - ~/trading-data:/root/trading-data
+
+  # HIGH-FREQUENCY TRADER ------------------------------------------------------
+  # This is experimental...
+  hft:
+    image: hft
+    build: git@github.com:joshuapjacob/trading.git#prod:hft
+    container_name: hft
+    restart: unless-stopped
+    env_file: ~/secrets.env
 
 volumes:
   conf:

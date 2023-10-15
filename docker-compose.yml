@@ -85,15 +85,6 @@ services:
   #   volumes:
   #     - ~/trading-data:/root/trading-data
 
-  # HIGH-FREQUENCY TRADER ------------------------------------------------------
-  # This is experimental...
-  hft:
-    image: hft
-    build: git@github.com:joshuapjacob/trading.git#prod:hft
-    container_name: hft
-    restart: unless-stopped
-    env_file: ~/secrets.env
-
 volumes:
   conf:
   vhost:

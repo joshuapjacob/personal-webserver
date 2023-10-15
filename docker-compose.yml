@@ -63,7 +63,7 @@ services:
   trading-dashboard:
     image: trading-dashboard
     build: 
-      context: git@github.com:joshuapjacob/trading.git#prod:dashboard
+      context: git@github.com:joshuapjacob/trading.git#:dashboard
       ssh: ["default"]
     container_name: trading-dashboard
     restart: always

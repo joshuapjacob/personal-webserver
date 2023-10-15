@@ -4,7 +4,8 @@ My personal webserver's docker-compose configuration.
 ## Usage
 
 ```console
-sudo docker compose up --build
+eval $(ssh-agent)
+docker compose up --build
 ```
 
 ## Containers
